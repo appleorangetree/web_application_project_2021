@@ -1,0 +1,36 @@
+#服务器配置
+server:
+  port: 80
+  session-timeout: 30
+  tomcat.max-threads: 0
+  tomcat.uri-encoding: UTF-8
+
+#spring相关配置
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+  datasource:
+       url: jdbc:postgresql://localhost:5432/movie_app #    url: jdbc:mysql://localhost:3306/tis?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+       username: postgres
+       password: 123456
+       driverClassName: org.postgresql.Driver
+  jackson:
+       time-zone: GMT+2
+  jpa:
+       properties:
+         hibernate:
+           show_sql: true
+           format_sql: true
+           ddl-auto: update 
+   
+  rabbitmq:
+       host: 192.168.90.205
+       port: 5672
+       username: admin
+       password: admin
+       virtual-host: /
